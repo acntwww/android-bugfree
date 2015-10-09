@@ -1,4 +1,4 @@
-package com.acnt.bugfree.activity.core;
+package com.acnt.bugfree.core.entity;
 
 /**
  * 任务的参数信息

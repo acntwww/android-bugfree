@@ -25,10 +25,15 @@
         <activity
             android:name=".activity.ChangeHostActivity"
             android:label="@string/title_activity_change_host"
-                android:parentActivityName=".activity.LoginActivity"
-                >
-
+            android:parentActivityName=".activity.LoginActivity" >
         </activity>
+
+        <service
+            android:name=".core.task.TaskExeService"
+            android:enabled="true"
+            android:exported="false"
+                android:process=":exe_task">
+        </service>
     </application>
 
 </manifest>

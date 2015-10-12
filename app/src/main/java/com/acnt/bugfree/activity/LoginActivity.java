@@ -1,41 +1,16 @@
 package com.acnt.bugfree.activity;
 
-import android.animation.Animator;
-import android.animation.AnimatorListenerAdapter;
-import android.annotation.TargetApi;
-import android.app.Activity;
-import android.app.LoaderManager.LoaderCallbacks;
-import android.content.ContentResolver;
-import android.content.CursorLoader;
-import android.content.Loader;
-import android.database.Cursor;
-import android.net.Uri;
-import android.os.AsyncTask;
-
-import android.os.Build;
+import android.content.Intent;
 import android.os.Bundle;
-import android.provider.ContactsContract;
-import android.text.TextUtils;
-import android.view.KeyEvent;
-import android.view.View;
-import android.view.View.OnClickListener;
-import android.view.inputmethod.EditorInfo;
-import android.widget.ArrayAdapter;
-import android.widget.AutoCompleteTextView;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.TextView;
-
-import java.util.ArrayList;
-import java.util.List;
-
+import android.view.Menu;
+import android.view.MenuItem;
 import com.acnt.bugfree.R;
 import com.acnt.bugfree.activity.base.BaseActivity;
 
 /**
  * A login screen that offers login via email/password.
  */
-public class LoginActivity extends BaseActivity  {
+public class LoginActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +18,31 @@ public class LoginActivity extends BaseActivity  {
         setContentView(R.layout.a_login);
     }
 
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_login, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        int id = item.getItemId();
+
+        if (id == R.id.action_host) {
+            gotoChangeHostActivity();
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
+    private void gotoChangeHostActivity() {
+        Intent intent = new Intent(this, ChangeHostActivity.class);
+        startActivity(intent);
+
+    }
 }
 
 

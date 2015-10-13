@@ -1,6 +1,7 @@
 package com.acnt.bugfree.core.entity;
 
 import com.j256.ormlite.field.DatabaseField;
+import com.j256.ormlite.field.ForeignCollectionField;
 import com.j256.ormlite.table.DatabaseTable;
 
 import java.util.List;
@@ -102,6 +103,7 @@ public class TaskInfo  {
     /**
      * 任务的参数
      */
+    @ForeignCollectionField(eager = false, columnName = "task_prams")
     private List<TaskParameter> mParameters;
 
     /**
@@ -202,5 +204,21 @@ public class TaskInfo  {
 
     public void setResultInfo(String resultInfo) {
         mResultInfo = resultInfo;
+    }
+
+    @Override
+    public String toString() {
+        return "TaskInfo{" +
+                "mTaskId=" + mTaskId +
+                ", mLevel=" + mLevel +
+                ", mStatus=" + mStatus +
+                ", mType=" + mType +
+                ", mAPIUrl='" + mAPIUrl + '\'' +
+                ", mTaskLabel='" + mTaskLabel + '\'' +
+                ", mParameters=" + mParameters +
+                ", mResultInfo='" + mResultInfo + '\'' +
+                ", mCreateAt=" + mCreateAt +
+                ", mUpdateAt=" + mUpdateAt +
+                '}';
     }
 }

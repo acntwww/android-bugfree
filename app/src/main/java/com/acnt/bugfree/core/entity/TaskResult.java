@@ -17,4 +17,13 @@ public class TaskResult {
         mLabel = label;
         mResultInfo = resultInfo;
     }
+
+    @Override
+    public String toString() {
+        return "TaskResult{" +
+                "mTaskId=" + mTaskId +
+                ", mLabel='" + mLabel + '\'' +
+                ", mResultInfo='" + mResultInfo + '\'' +
+                '}';
+    }
 }

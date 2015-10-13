@@ -5,4 +5,6 @@ package com.acnt.bugfree.config;
  * Created by NiuKY on 10/12.
  */
 public interface API {
+
+    String GET_SID = "getsid";
 }

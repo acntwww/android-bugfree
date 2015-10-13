@@ -1,39 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.acnt.bugfree" >
+          package="com.acnt.bugfree">
 
-    <!-- To auto-complete the email text field in the login form with the user's emails -->
-    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
-    <uses-permission android:name="android.permission.READ_PROFILE" />
-    <uses-permission android:name="android.permission.READ_CONTACTS" />
+	<!-- To auto-complete the email text field in the login form with the user's emails -->
+	<uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+	<uses-permission android:name="android.permission.READ_PROFILE"/>
+	<uses-permission android:name="android.permission.READ_CONTACTS"/>
 
-    <application
-        android:name=".BugFreeApplication"
-        android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
-        android:label="BugFree"
-        android:theme="@style/AppTheme" >
-        <activity
-            android:name=".activity.LoginActivity"
-            android:label="用户登录" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+	<application
+			android:name=".BugFreeApplication"
+			android:allowBackup="true"
+			android:icon="@mipmap/ic_launcher"
+			android:label="BugFree"
+			android:theme="@style/AppTheme">
+		<activity
+				android:name=".activity.LoginActivity"
+				android:label="用户登录">
+			<intent-filter>
+				<action android:name="android.intent.action.MAIN"/>
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name=".activity.ChangeHostActivity"
-            android:label="@string/title_activity_change_host"
-            android:parentActivityName=".activity.LoginActivity" >
-        </activity>
+				<category android:name="android.intent.category.LAUNCHER"/>
+			</intent-filter>
+		</activity>
+		<activity
+				android:name=".activity.ChangeHostActivity"
+				android:label="@string/title_activity_change_host"
+				android:parentActivityName=".activity.LoginActivity">
+		</activity>
 
-        <service
-            android:name=".core.task.TaskExeService"
-            android:enabled="true"
-            android:exported="false"
-                android:process=":exe_task">
-        </service>
-    </application>
+		<service
+				android:name=".core.task.TaskExeService"
+				android:enabled="true"
+				android:exported="false"
+				android:process=":exe_task">
+			<intent-filter>
+				<action android:name="com.acnt.bugfree.core.task.TaskExeService"/>
+			</intent-filter>
+		</service>
+	</application>
 
 </manifest>

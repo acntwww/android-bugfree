@@ -10,6 +10,14 @@ import android.widget.Button;
 import android.widget.EditText;
 import com.acnt.bugfree.R;
 import com.acnt.bugfree.activity.base.BaseActivity;
+import com.acnt.bugfree.config.API;
+import com.acnt.bugfree.core.entity.TaskInfo;
+import com.acnt.bugfree.core.entity.TaskResult;
+import com.acnt.bugfree.core.entity.UiTask;
+import com.acnt.bugfree.util.EventBusUtil;
+import trikita.log.Log;
+
+import java.awt.font.TextAttribute;
 
 import static com.acnt.bugfree.R.id.et_host;
 
@@ -65,12 +73,27 @@ public class ChangeHostActivity extends BaseActivity {
         });
     }
 
+    private UiTask getTestHostUITask() {
+        String host = mEtHostInfo.getText().toString();
+        host = "http://115.29.161.131:8090/bugfree3.0.4/api3.php";
+        UiTask task = new UiTask(host, API.GET_SID, getTestHostTaskLabel(), TaskInfo.LEVEL_FORCE);
+        return task;
+    }
+
+    private String getTestHostTaskLabel() {
+        return "测试连接";
+    }
+
     private boolean validateInput(String text) {
         if (TextUtils.isEmpty(text)) {
             mTextInputLayout.setError("服务器地址不能为空");
             return false;
         }
         return true;
+    }
+
+    public void onEventMainThread(TaskResult result) {
+        Log.d("onEventMainThread: ", result);
     }
 
 }
